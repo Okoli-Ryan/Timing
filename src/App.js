@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import About from './About';
 import Timer from './Timer';
 import Navigation from "./Nav";
+import "bootstrap/dist/css/bootstrap.min.css"
+
 
 function App() {
   return (
