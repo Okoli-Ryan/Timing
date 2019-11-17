@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Clock from "./Clock";
 import Stopwatch from "./stopwatch_buttons";
 
@@ -9,6 +9,10 @@ function Timer(){
     const [disabled, setDisabled] = useState(true);
 
     var [valueTime, setValue] = useState(0);
+
+    useEffect(() => {
+        setValue(valueTime);
+    }, [valueTime]);
 
     const increaseValue = () => {
         s = setInterval(repeat, 10);
