@@ -8,7 +8,7 @@ function Timer(){
 
     const [disabled, setDisabled] = useState(true);
 
-    var [valueTime, setValue] = useState(57000);
+    var [valueTime, setValue] = useState(0);
 
     const increaseValue = () => {
         s = setInterval(repeat, 10);
