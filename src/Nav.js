@@ -19,14 +19,14 @@ function Navigation() {
             <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <Link to="/about"><NavLink>
+                    <NavLink><Link to="/about">
                         About
-                    </NavLink></Link>
+                    </Link></NavLink>
                 </NavItem>
                 <NavItem>
-                    <Link to="/time"><NavLink>
+                    <NavLink><Link to="/time">
                         Stopwatch
-                    </NavLink></Link>
+                    </Link></NavLink>
                 </NavItem>
             </Nav>
             </Collapse>
