@@ -11,13 +11,13 @@ function Clock({secondTime}){
     //     else
     //         return minute
     // }
-    var minute = new Date(secondTime*10).getMinutes();
-    var second = new Date(secondTime*10).getSeconds();
-    var milli = new Date(Math.floor(secondTime%100)).getMilliseconds();
+    var minute = new Date(secondTime).getMinutes();
+    var second = new Date(secondTime).getSeconds();
+    var milli = new Date(secondTime).getMilliseconds();
 
     var CalMinute = minute.toString().padStart(2, '0');
     var CalSecond = second.toString().padStart(2, '0');
-    var CalMilli = milli.toString().padStart(2, '0');
+    var CalMilli = (milli/10).toString().padStart(2, '0');
 
     return(
             <div className="rounded-circle m-auto" style={circle}>

@@ -24,9 +24,11 @@ function Navigation() {
                     </Link></NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink><Link to="/time">
+                    <NavLink>
+                        <Link to="/time">
                         Stopwatch
-                    </Link></NavLink>
+                    </Link>
+                    </NavLink>
                 </NavItem>
             </Nav>
             </Collapse>
