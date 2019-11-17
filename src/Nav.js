@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav, Collapse} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 function Navigation() {
     
@@ -9,21 +10,22 @@ function Navigation() {
 
     return (
         <Navbar color="dark" dark expand="md">
-            <NavbarBrand href="/">
+            <Link to="/"><NavbarBrand>
                 React
             </NavbarBrand>
+            </Link>
             <NavbarToggler onClick={toggle}/>
             <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                    <NavLink href="/about">
+                    <Link to="/about"><NavLink>
                         About
-                    </NavLink>
+                    </NavLink></Link>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="/time">
+                    <Link to="/time"><NavLink>
                         Stopwatch
-                    </NavLink>
+                    </NavLink></Link>
                 </NavItem>
             </Nav>
             </Collapse>
