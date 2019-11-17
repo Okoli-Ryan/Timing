@@ -11,20 +11,22 @@ function Timer(){
     var [valueTime, setValue] = useState(0);
 
     const increaseValue = () => {
-        s = setInterval(repeat, 1000);
-        valueTime++;
+        s = setInterval(repeat, 100);
         setDisabled(false);
     };
 
     function repeat() {
-        setValue(valueTime++);
+        valueTime += 10;
+        setValue(valueTime);
+        if (valueTime === 360000)
+            stop();
     }
 
     const clearValue = () => {
         clearInterval(s);
         setValue(0);
         setDisabled(true);
-    }
+    };
 
     const stop = () => {
         clearInterval(s);
@@ -39,7 +41,7 @@ function Timer(){
             <Clock secondTime={valueTime}/>
             <Stopwatch increase={increaseValue} clear={clearValue} disable={disabled} stop={stop} valueTime={valueTime}/>
         </div>
-)
+    )
 }
 
 export default Timer;
