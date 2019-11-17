@@ -10,9 +10,10 @@ function Navigation() {
 
     return (
         <Navbar color="dark" dark expand="md">
-            <Link to="/"><NavbarBrand>
-                React
-            </NavbarBrand>
+            <Link to="/">
+                <NavbarBrand>
+                    React
+                </NavbarBrand>
             </Link>
             <NavbarToggler onClick={toggle}/>
             <Collapse isOpen={isOpen} navbar>

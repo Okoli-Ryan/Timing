@@ -1,6 +1,6 @@
 import React from 'react';
 const circle= {border: "2px solid #6F73B4", backgroundColor: "#B0E0E6", width: 300, height: 300};
-const timer= {fontSize: 40, position: "relative", left: "30%", top: "37%"};
+const timer= {fontSize: 40, position: "relative", left: "26%", top: "39%"};
 
 function Clock({secondTime}){
 
