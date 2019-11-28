@@ -36,8 +36,8 @@ const StopWatch = (props) => {
 
     return (
         <div className="text-center">
-            <div className="style_button_group mt-2">
-                <Input type="text" className="style_Input" onChange={getValue} disabled={!props.disabled}/>
+            <div className="style_button_group mt-3">
+                <Input type="text" className="style_Input ml-2" onChange={getValue} disabled={!props.disabled}/>
                 <Input type="text" className="style_Input ml-2" onChange={getValue_two} disabled={!props.disabled}/>
 
             </div>
