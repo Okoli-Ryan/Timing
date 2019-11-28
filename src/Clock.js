@@ -7,7 +7,9 @@ function Clock({secondTime, minuteTime}){
     var sec = secondTime;
 
     function format(e) {
-        if(e < 10){
+        if(e === "")
+            return "00";
+        else if(e < 10){
             return "0" + e.toString();
         }
         else
