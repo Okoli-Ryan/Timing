@@ -1,19 +1,21 @@
 import React from 'react';
 import {Button} from 'reactstrap';
+import './App.css';
 
-var Stopwatch = ({increase, clear, stop, disable, valueTime}) => {
 
-    const startButton = (<Button className="btn btn-secondary btn-lg" onClick={increase}>
+var Stopwatch = (props) => {
+
+    const startButton = (<Button className="btn btn-secondary ml-2" onClick={props.increase}>
         Start
     </Button>);
-    const stopButton = (<Button className="btn btn-danger btn-lg" onClick={stop}>
+    const stopButton = (<Button className="btn btn-danger ml-2" onClick={props.stop}>
         Stop
     </Button>);
 
     return (
-        <div className="text-center mt-4">
-                {disable ? startButton : stopButton}
-                <Button className="btn btn-secondary btn-lg ml-2" onClick={clear} disabled={valueTime === 0}>
+            <div className="mt-3 mb-2 text-center">
+                {props.disable ? startButton : stopButton}
+                <Button className="btn btn-secondary ml-2" onClick={props.clear} disabled={props.valueTime === 0}>
                     clear
                 </Button>
         </div>

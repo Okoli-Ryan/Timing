@@ -10,19 +10,15 @@ function Timer(){
 
     var [valueTime, setValue] = useState(0);
 
-    useEffect(() => {
-        setValue(valueTime);
-    }, [valueTime]);
-
     const increaseValue = () => {
-        s = setInterval(repeat, 10);
+        s = setInterval(repeat, 1000);
         setDisabled(false);
     };
 
     function repeat() {
-        valueTime += 10;
+        valueTime ++;
         setValue(valueTime);
-        if (valueTime === 3600000)
+        if (valueTime === 3600)
             stop();
     }
 
@@ -42,7 +38,7 @@ function Timer(){
             <div className="jumbotron">
                 <h2 className="text-center">Stopwatch Timer</h2>
             </div>
-            <Clock secondTime={valueTime}/>
+            <Clock minuteTime={Math.floor(valueTime/60)} secondTime={Math.floor(valueTime%1000)}/>
             <Stopwatch increase={increaseValue} clear={clearValue} disable={disabled} stop={stop} valueTime={valueTime}/>
         </div>
     )

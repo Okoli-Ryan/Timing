@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import About from './About';
+import Countdown from './Countdown';
 import Timer from './Timer';
 import Navigation from "./Nav";
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <div>
             <Navigation/>
-          <Route path="/about" component={About}/>
+          <Route path="/countdown" component={Countdown}/>
           <Route path="/time" component={Timer}/>
 
         </div>
