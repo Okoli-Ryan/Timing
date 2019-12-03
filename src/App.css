@@ -34,14 +34,44 @@
 .circle{
   border: 2px solid #6F73B4;
   background-color: #B0E0E6;
-  width: 300px;
-  height: 300px;
+  width: 15rem;
+  height: 15rem;
 }
 
 .timer {
-  font-size: 40px;
+  font-size: 2rem;
   position: relative;
-  left: 33%;
-  top: 39%
+  top: 42%;
 }
 
+.drop-button{
+  color: black;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  position: relative;
+}
+
+.drop-button:hover{
+  background-color: aliceblue;
+}
+
+.drop-div{
+  display: flex;
+  flex: 1;
+  background-color: #e9ecef;
+  max-height: 8em;
+  height: max-content;
+  flex-direction: column;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  border-radius: 5px
+}
+
+@media screen and (max-width: 767px){
+  .drop-div{
+    top: 50%
+  }
+}

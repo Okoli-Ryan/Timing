@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Clock from "./Clock";
 import Stopwatch from "./stopwatch_buttons";
 
@@ -16,10 +16,12 @@ function Timer(){
     };
 
     function repeat() {
-        valueTime ++;
-        setValue(valueTime);
-        if (valueTime === 3600)
+        if (valueTime === 86399)
             stop();
+        else {
+            valueTime++;
+            setValue(valueTime);
+        }
     }
 
     const clearValue = () => {
@@ -27,6 +29,10 @@ function Timer(){
         setValue(0);
         setDisabled(true);
     };
+
+    var hour = Math.floor(valueTime/3600);
+    var min = (valueTime - (Math.floor(valueTime/3600)*3600) - Math.floor(valueTime%60))/60;
+    var sec = Math.floor(valueTime%60);
 
     const stop = () => {
         clearInterval(s);
@@ -38,7 +44,7 @@ function Timer(){
             <div className="jumbotron">
                 <h2 className="text-center">Stopwatch Timer</h2>
             </div>
-            <Clock minuteTime={Math.floor(valueTime/60)} secondTime={Math.floor(valueTime%1000)}/>
+            <Clock minuteTime={min} secondTime={sec} hourTime={Math.floor(hour)}/>
             <Stopwatch increase={increaseValue} clear={clearValue} disable={disabled} stop={stop} valueTime={valueTime}/>
         </div>
     )

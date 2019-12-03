@@ -13,6 +13,10 @@ const StopWatch = (props) => {
         props.countdown_two(e.target.value);
     }
 
+    function getValue_three(e) {
+        props.countdown_three(e.target.value);
+    }
+
     function clear() {
         props.clear();
     }
@@ -37,6 +41,7 @@ const StopWatch = (props) => {
     return (
         <div className="text-center">
             <div className="style_button_group mt-3">
+                <Input type="text" className="style_Input ml-2" onChange={getValue_three} disabled={!props.disabled}/>
                 <Input type="text" className="style_Input ml-2" onChange={getValue} disabled={!props.disabled}/>
                 <Input type="text" className="style_Input ml-2" onChange={getValue_two} disabled={!props.disabled}/>
 

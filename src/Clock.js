@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 
-function Clock({secondTime, minuteTime}){
+function Clock(props){
 
-    var min = minuteTime;
-    var sec = secondTime;
+    var min = props.minuteTime;
+    var sec = props.secondTime;
+    var hour = props.hourTime;
+    var cityLoc = props.cityLoc;
 
     function format(e) {
         if(e === "")
@@ -18,11 +20,17 @@ function Clock({secondTime, minuteTime}){
 
     min = format(min);
     sec = format(sec);
+    hour = format(hour);
 
     return(
+        <div className="mb-3 text-center">
             <div className="rounded-circle m-auto circle">
-                <span className="text-center timer">{min}:{sec}</span>
+                <span className="text-center timer">{hour}:{min}:{sec}</span>
             </div>
+            <div className="text-center">
+                {cityLoc}
+            </div>
+        </div>
     )
 }
 
