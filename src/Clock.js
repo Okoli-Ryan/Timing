@@ -3,10 +3,12 @@ import './App.css';
 
 function Clock(props){
 
-    var min = props.minuteTime;
-    var sec = props.secondTime;
-    var hour = props.hourTime;
-    var cityLoc = props.cityLoc;
+    const {minuteTime, secondTime, hourTime, cityLoc} = props;
+
+    var min = minuteTime;
+    var sec = secondTime;
+    var hour = hourTime;
+    var cityLocation = cityLoc;
 
     function format(e) {
         if(e === "")
@@ -28,7 +30,7 @@ function Clock(props){
                 <span className="text-center timer">{hour}:{min}:{sec}</span>
             </div>
             <div className="text-center">
-                {cityLoc}
+                {cityLocation}
             </div>
         </div>
     )

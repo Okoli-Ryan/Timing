@@ -30,6 +30,9 @@
   width: 50px!important;
 }
 
+#select{
+  width: 200px
+}
 
 .circle{
   border: 2px solid #6F73B4;
@@ -44,34 +47,8 @@
   top: 42%;
 }
 
-.drop-button{
-  color: black;
-  border-bottom: 1px solid black;
-  background: none;
-  outline: none;
-  position: relative;
-}
-
-.drop-button:hover{
-  background-color: aliceblue;
-}
-
-.drop-div{
-  display: flex;
-  flex: 1;
-  background-color: #e9ecef;
-  max-height: 8em;
-  height: max-content;
-  flex-direction: column;
-  overflow-y: auto;
-  position: absolute;
-  top: 100%;
-  right: 10%;
-  border-radius: 5px
-}
-
 @media screen and (max-width: 767px){
-  .drop-div{
-    top: 50%
+  #select{
+    width: 100%
   }
 }
