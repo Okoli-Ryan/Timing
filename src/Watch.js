@@ -17,7 +17,7 @@ function Watch(props){
 
         const fetchData = async () => {
             const result = await axios(
-                'http://worldtimeapi.org/api/timezone/Africa/Lagos',
+                'https://worldtimeapi.org/api/timezone/Africa/Lagos',
             );
             var er = result.data.datetime.toString().substring(11, 19).split(":");
             // console.log(result.data.datetime.toString().substring(11, 19).split(":"));
