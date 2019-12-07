@@ -36,8 +36,7 @@ function Watch(props){
 
     const increaseValue = () => {
         s = setInterval(repeat, 1000);
-        debugger;
-    };
+            };
 
     function repeat() {
         if (valueTime >= 86399) {
