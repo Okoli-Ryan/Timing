@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Clock from "./Clock";
+import axios from 'axios';
 
 var s;
 
@@ -9,9 +10,25 @@ function Watch(props){
     const val = (hourTime*3600) + (minuteTime*60) + (secondTime%60);
 
     var [valueTime, setValue] = useState(val);
+    // const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        increaseValue();
+
+
+        const fetchData = async () => {
+            const result = await axios(
+                'http://worldtimeapi.org/api/timezone/Africa/Lagos',
+            );
+            var er = result.data.datetime.toString().substring(11, 19).split(":");
+            // console.log(result.data.datetime.toString().substring(11, 19).split(":"));
+            valueTime = er[0]*3600 + er[1]*60 + er[2]%60;
+                setValue(valueTime);
+
+            increaseValue();
+
+        };
+
+        fetchData();
         return () =>
             clearInterval(s)
 
@@ -19,6 +36,7 @@ function Watch(props){
 
     const increaseValue = () => {
         s = setInterval(repeat, 1000);
+        debugger;
     };
 
     function repeat() {
@@ -31,15 +49,18 @@ function Watch(props){
 
     }
     //
-    var hour = Math.floor(valueTime/3600);
-    var min = (valueTime - (Math.floor(valueTime/3600)*3600) - Math.floor(valueTime%60))/60;
-    var sec = Math.floor(valueTime%60);
 
     return(
         <div>
-            <Clock minuteTime={min} secondTime={sec} hourTime={hour} cityLoc = {cityLoc}/>
+            <Clock minuteTime={(valueTime - (Math.floor(valueTime/3600)*3600) - Math.floor(valueTime%60))/60}
+                   secondTime={Math.floor(valueTime%60)}
+                   hourTime={Math.floor(valueTime/3600)}
+                   cityLoc = {cityLoc}
+            />
         </div>
     )
 }
 
 export default Watch;
+
+//http://worldtimeapi.org/api/timezone

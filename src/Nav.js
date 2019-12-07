@@ -17,7 +17,10 @@ function Navigation() {
         }));
 
     const toggle = () => SetIsOpen(!isOpen);
-    const toggleModal = () => setModalShow(!modalShow);
+    const toggleModal = (v) => {
+        setModalShow(!modalShow);
+        // v.options = null;
+    };
 
     return (
         <Navbar color="dark" dark expand="md">

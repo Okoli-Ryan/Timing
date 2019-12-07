@@ -9,7 +9,7 @@ const ModalEx = (props) => {
     const toggle = () => {
         setModal(false);
         props.appear();
-    }
+    };
 
     return (
         <div>

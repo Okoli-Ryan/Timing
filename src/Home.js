@@ -4,10 +4,14 @@ import Watch from "./Watch";
 
 export default function Home() {
 
-    const times = ["8-12-13-Philadelphia", "13-49-22-New York", "0-0-13-Lagos", "23-12-9-Shanghai"];
+    const times = ["8-12-13-Philadelphia", "13-49-22-New York", "0-0-13-Lagos"
+        // , "23-12-9-Shanghai"
+    ];
     const list = times.map((item, key) =>
         <Col key={key}>
-           <Watch secondTime={item.split("-")[2]} minuteTime={item.split("-")[1]} hourTime={item.split("-")[0]} cityLoc={item.split("-")[3]}/>
+           <Watch
+               secondTime={item.split("-")[2]} minuteTime={item.split("-")[1]} hourTime={item.split("-")[0]} cityLoc={item.split("-")[3]}
+           />
         </Col>
     );
 
@@ -25,4 +29,7 @@ export default function Home() {
     )
 }
 
-//http://worldtimeapi.org/api/timezone
+//clear navigation search onChange
+//get Time for modal
+//Get Time zones for home
+//collapse on route change
