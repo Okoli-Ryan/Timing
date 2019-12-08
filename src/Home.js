@@ -3,8 +3,10 @@ import {Container, Row, Col} from 'reactstrap';
 import Watch from "./Watch";
 
 export default function Home() {
+    // const [time, setTime] = useState({second: 0, minute: 0});
+    // const [error, setError] = useState(false);
 
-    const times = ["8-12-13-Africa/Lagos", "13-49-22-Etc/UTC"];
+    const times = ["8-3-2-Africa/Lagos", "4-3-3-Etc/UTC"];
 
     const list = times.map((item, key) =>
         <Col key={key}>
@@ -28,7 +30,6 @@ export default function Home() {
     )
 }
 
-//clear navigation search onChange
-
-//collapse on route change
+//useEffect when reloading page for error
+//collapse on route change with4 callback
 //transitions

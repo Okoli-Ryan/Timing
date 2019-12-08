@@ -4,10 +4,9 @@ import axios from 'axios';
 import { DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap";
 import ModalError from './ModalError'
 
-var s;
-
 function Watch(props){
 
+    var s;
     var {hourTime, minuteTime, secondTime, cityLoc} = props;
 
     const val = (hourTime*3600) + (minuteTime*60) + (secondTime%60);
@@ -19,6 +18,10 @@ function Watch(props){
     const [dst, setDST] = useState(true);
     const [offset, setOffset] = useState(true);
     const [error, setError] = useState(false);
+
+    function handleRefresh(){
+        setError(false);
+    }
 
 
 
@@ -55,7 +58,7 @@ function Watch(props){
         return () =>
             clearInterval(s)
 
-    }, []);
+    }, [error]);
 
     const increaseValue = () => {
         s = setInterval(repeat, 1000);
@@ -101,7 +104,7 @@ function Watch(props){
     return(
         <div>
             <div className="mb-2">
-                {error ? <ModalError/> : (isLoading ? loadingComp : clockComp)}
+                {error ? <ModalError refresh={handleRefresh}/> : (isLoading ? loadingComp : clockComp)}
             </div>
         </div>
     )

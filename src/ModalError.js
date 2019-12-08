@@ -1,16 +1,17 @@
 import React from 'react';
 import {Modal, ModalHeader, ModalBody, Button} from 'reactstrap';
 
-const ModalError = () => {
+const ModalError = (props) => {
 
-    //
+    // const [refresh, doRefresh] = useState(false);
     // const toggle = () => {
     //     setModal(false);
     //     props.appear();
     // };
 
     function handle() {
-        window.location.reload();
+        // window.location.reload();
+        props.refresh();
     }
 
     return (

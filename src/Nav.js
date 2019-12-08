@@ -18,13 +18,13 @@ function Navigation() {
         }));
 
     const toggle = () => SetIsOpen(!isOpen);
+
     const toggleModal = (v) => {
         setModalShow(!modalShow);
 
-        if(modalShow === false)
+        if(modalShow === false) {
             setCityLoc(v.value);
-
-
+        }
     };
 
     return (
