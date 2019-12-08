@@ -3,12 +3,11 @@ import './App.css';
 
 function Clock(props){
 
-    const {minuteTime, secondTime, hourTime, cityLoc} = props;
+    const {minuteTime, secondTime, hourTime} = props;
 
     var min = minuteTime;
     var sec = secondTime;
     var hour = hourTime;
-    var cityLocation = cityLoc;
 
     function format(e) {
         if(e === "")
@@ -25,12 +24,9 @@ function Clock(props){
     hour = format(hour);
 
     return(
-        <div className="mb-3 text-center">
+        <div className="mb-1 text-center">
             <div className="rounded-circle m-auto circle">
                 <span className="text-center timer">{hour}:{min}:{sec}</span>
-            </div>
-            <div className="text-center">
-                {cityLocation}
             </div>
         </div>
     )

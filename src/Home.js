@@ -4,9 +4,8 @@ import Watch from "./Watch";
 
 export default function Home() {
 
-    const times = ["8-12-13-Philadelphia", "13-49-22-New York", "0-0-13-Lagos"
-        // , "23-12-9-Shanghai"
-    ];
+    const times = ["8-12-13-Africa/Lagos", "13-49-22-Etc/UTC"];
+
     const list = times.map((item, key) =>
         <Col key={key}>
            <Watch
@@ -30,6 +29,6 @@ export default function Home() {
 }
 
 //clear navigation search onChange
-//get Time for modal
-//Get Time zones for home
+
 //collapse on route change
+//transitions

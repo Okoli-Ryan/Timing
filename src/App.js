@@ -23,7 +23,3 @@ function App() {
 }
 
 export default App;
-
-//uPYTXqX5ASvU4xPjRPfXmNSf2Msgs4
-//Powered by <a href="https://www.amdoren.com">Amdoren</a>
-//https://www.amdoren.com/api/timezone.php?loc=New+York&api_key=uPYTXqX5ASvU4xPjRPfXmNSf2Msgs4

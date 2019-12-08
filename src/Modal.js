@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Modal, ModalHeader, ModalBody} from 'reactstrap';
 import Watch from './Watch'
 
 const ModalEx = (props) => {
@@ -14,13 +14,10 @@ const ModalEx = (props) => {
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                <ModalHeader toggle={toggle}>{`${props.cityLoc} details`}</ModalHeader>
                 <ModalBody>
-                    <Watch hourTime={12} minuteTime={13} secondTime={24} cityLoc="San Francisco"/>
+                    <Watch cityLoc={props.cityLoc}/>
                 </ModalBody>
-                <ModalFooter>
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
-                </ModalFooter>
             </Modal>
         </div>
     );

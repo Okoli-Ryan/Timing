@@ -9,6 +9,7 @@ function Navigation() {
 
     const [isOpen, SetIsOpen] = useState(false);
     const [modalShow, setModalShow] = useState(false);
+    const [cityLoc, setCityLoc] = useState("Africa/Lagos");
 
     const options = location_list
         .map((item) => ({
@@ -19,7 +20,11 @@ function Navigation() {
     const toggle = () => SetIsOpen(!isOpen);
     const toggleModal = (v) => {
         setModalShow(!modalShow);
-        // v.options = null;
+
+        if(modalShow === false)
+            setCityLoc(v.value);
+
+
     };
 
     return (
@@ -34,7 +39,7 @@ function Navigation() {
                             <Select options={options} onChange={toggleModal}/>
                     </NavItem>
                     <NavItem>
-                        {modalShow && <ModalEx appear={toggleModal}/>}
+                        {modalShow && <ModalEx appear={toggleModal} cityLoc={cityLoc}/>}
                     </NavItem>
                     <NavItem>
                         <Link to="/countdown" className="nav-link">
