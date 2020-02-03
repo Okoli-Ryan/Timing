@@ -3,21 +3,19 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Countdown from './Countdown';
 import Timer from './Timer';
-import Navigation from "./Nav";
 import Home from "./Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
 
   return (
       <Router>
-        <div>
-            <Navigation/>
-            <Route path="/" exact component={Home}/>
-            <Route path="/countdown" component={Countdown}/>
-            <Route path="/time" component={Timer}/>
-
-        </div>
+              <div>
+                  <Route path="/" exact component={Home}/>
+                  <Route path="/countdown" component={Countdown}/>
+                  <Route path="/time" component={Timer}/>
+                </div>
       </Router>
   );
 }

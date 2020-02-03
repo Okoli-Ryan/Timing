@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Clock from "./Clock";
 import Stopwatch from "./Countdown_buttons";
+import Navigation from "./Nav";
+
 
 var s;
 const Countdown = () => {
@@ -75,6 +77,8 @@ const Countdown = () => {
     }
 
     return(
+        <>
+            <Navigation/>
         <div>
             <div className="jumbotron">
                 <h2 className="text-center">Countdown Timer</h2>
@@ -83,6 +87,7 @@ const Countdown = () => {
             <Stopwatch countdown={setSecond} countdown_two={setMinute} countdown_three={setHours} startCountdown={startCountdown} stop={stop} disabled={disabled} clear={clear}/>
 
         </div>
+            </>
     )
 };
 

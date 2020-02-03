@@ -2,16 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Clock from "./Clock";
 import axios from 'axios';
 import { DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap";
-import ModalError from './ModalError'
+import ModalError from './ModalError';
 
 function Watch(props){
 
-    var s;
-    var {hourTime, minuteTime, secondTime, cityLoc} = props;
+    var {cityLoc} = props;
 
-    const val = (hourTime*3600) + (minuteTime*60) + (secondTime%60);
-
-    var [valueTime, setValue] = useState(val);
     const [isLoading, setIsLoading] = useState(true);
     const [abbre, setAbbre] = useState(true);
     const [date, setDate] = useState(true);
@@ -23,28 +19,23 @@ function Watch(props){
         setError(false);
     }
 
-
-
     useEffect(() => {
 
 
         const fetchData = async () => {
             try {
-
+                console.log("start");
                 const result = await axios(
                     `https://worldtimeapi.org/api/timezone/${cityLoc}`,
                 );
-
+                //
                 setAbbre(result.data.abbreviation.toString());
                 setDate(result.data.datetime.toString().substring(0, 10));
                 setDST(result.data.dst);
                 setOffset(result.data.utc_offset);
-                var er = result.data.datetime.toString().substring(11, 19).split(":");
-                valueTime = er[0] * 3600 + er[1] * 60 + er[2] % 60;
                 setIsLoading(false);
-                setValue(valueTime);
 
-                increaseValue();
+                // increaseValue();
             }
             catch (e) {
                 setError(true);
@@ -55,30 +46,18 @@ function Watch(props){
 
             fetchData();
 
-        return () =>
-            clearInterval(s)
+    }, [cityLoc]);
 
-    }, [error]);
 
-    const increaseValue = () => {
-        s = setInterval(repeat, 1000);
-            };
-
-    function repeat() {
-        if (valueTime >= 86399) {
-            valueTime = -1;
-            setValue(valueTime);
-        }
-            valueTime++;
-            setValue(valueTime);
-
-    }
     //
     const clockComp =
         <>
-            <Clock minuteTime={(valueTime - (Math.floor(valueTime/3600)*3600) - Math.floor(valueTime%60))/60}
-                             secondTime={Math.floor(valueTime%60)}
-                             hourTime={Math.floor(valueTime/3600)}/>
+            <Clock
+                minuteTime={new Date().getMinutes()}
+                             secondTime={new Date().getSeconds()}
+                             hourTime={
+                                 (new Date().getHours() + parseInt(offset.toString().substring(0, 3)) - 1)%24
+                             }/>
                              <UncontrolledDropdown direction="right" className="mt-1 text-center">
                                 <DropdownToggle caret color="light">
                                     {cityLoc}
@@ -93,12 +72,6 @@ function Watch(props){
         </>
     ;
 
-    // details.push(result.data.datetime.toString().substring(11, 19).split(":"));
-    // details.push(result.data.abbreviation.toString());
-    // details.push(result.data.datetime.toString().substring(0, 10));
-    // details.push(result.data.dst);
-    // details.push(result.data.utc_offset);
-
     const loadingComp = <h4>Loading...</h4>;
 
     return(
@@ -111,5 +84,3 @@ function Watch(props){
 }
 
 export default Watch;
-
-//http://worldtimeapi.org/api/timezone

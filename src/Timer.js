@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Clock from "./Clock";
 import Stopwatch from "./stopwatch_buttons";
+import Navigation from "./Nav";
 
 var s;
 
@@ -40,13 +41,16 @@ function Timer(){
     };
 
     return(
-        <div>
+        <>
+            <Navigation/>
+            <div>
             <div className="jumbotron">
                 <h2 className="text-center">Stopwatch Timer</h2>
             </div>
             <Clock minuteTime={min} secondTime={sec} hourTime={Math.floor(hour)}/>
             <Stopwatch increase={increaseValue} clear={clearValue} disable={disabled} stop={stop} valueTime={valueTime}/>
         </div>
+            </>
     )
 }
 
