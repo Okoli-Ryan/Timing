@@ -48,7 +48,7 @@ const Countdown = () => {
                 setTime(secondTime);
                 minuteTime -= 1;
                 setTiming(minuteTime);
-                if (minuteTime <= 0){
+                if (minuteTime < 0){
                     minuteTime = 59;
                     setTiming(minuteTime);
                     hourTime-=1;
