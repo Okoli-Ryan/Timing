@@ -12,8 +12,9 @@ function Watch(props){
     const [abbre, setAbbre] = useState(true);
     const [date, setDate] = useState(true);
     const [dst, setDST] = useState(true);
-    const [offset, setOffset] = useState(true);
+    let [offset, setOffset] = useState(true);
     const [error, setError] = useState(false);
+    let [ext, setExt] = useState(0);
 
     function handleRefresh(){
         setError(false);
@@ -32,8 +33,26 @@ function Watch(props){
                 setAbbre(result.data.abbreviation.toString());
                 setDate(result.data.datetime.toString().substring(0, 10));
                 setDST(result.data.dst);
-                setOffset(result.data.utc_offset);
+                offset = result.data.utc_offset;
+                setOffset(offset);
                 setIsLoading(false);
+
+                let conA = new Date().getMinutes() < parseInt(offset.toString().substring(4, 6));
+                let conB = new Date().getMinutes() + parseInt(offset.toString().substring(4, 6)) > 60;
+                let conMin = (offset.toString().substring(0, 1) === "-");
+                let conAdd = (offset.toString().substring(0, 1) === "+");
+
+
+                if (conMin) {
+                    if (conA)
+                        setExt(-1);
+
+                }
+
+                if (conAdd) {
+                    if(conB)
+                        setExt(1);
+                    }
 
                 // increaseValue();
             }
@@ -53,10 +72,20 @@ function Watch(props){
     const clockComp =
         <>
             <Clock
-                minuteTime={new Date().getMinutes()}
+                minuteTime={(offset.toString().substring(0, 1) === "-") ?
+
+                    (new Date().getMinutes() - parseInt(offset.toString().substring(4, 6)) + 60)%60
+                    :
+
+                    (new Date().getMinutes() + parseInt(offset.toString().substring(4, 6)))%60
+                }
+
                              secondTime={new Date().getSeconds()}
                              hourTime={
-                                 (new Date().getHours() + parseInt(offset.toString().substring(0, 3)) - 1)%24
+                                 (offset.toString().substring(0, 1) === "-") ?
+                                     (new Date().getHours() - parseInt(offset.toString().substring(1, 3)) - 1 + 24 + ext)%24
+                                     :
+                                     (new Date().getHours() + parseInt(offset.toString().substring(1, 3)) - 1 + ext)%24
                              }/>
                              <UncontrolledDropdown direction="right" className="mt-1 text-center">
                                 <DropdownToggle caret color="light">
