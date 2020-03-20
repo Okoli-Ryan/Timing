@@ -46,7 +46,3 @@ export default function Home() {
             </>
     )
 }
-
-//useEffect when reloading page for error
-//collapse on route change with4 callback
-//transitions
