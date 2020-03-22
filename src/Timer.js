@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Clock from "./Clock";
 import Stopwatch from "./stopwatch_buttons";
-import Navigation from "./Nav";
+// import Navigation from './Nav';
 
 var s;
 
@@ -42,7 +42,7 @@ function Timer(){
 
     return(
         <>
-            <Navigation/>
+            {/*<Navigation/>*/}
             <div>
             <div className="jumbotron">
                 <h2 className="text-center">Stopwatch Timer</h2>

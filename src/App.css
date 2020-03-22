@@ -47,6 +47,20 @@
   top: 42%;
 }
 
+
+/* Inline #4 | http://localhost:3000/time */
+
+#nav-item-select {
+  align-self: center;
+  border-radius: 2px;
+  width: 100%;
+}
+
+select {
+  height: 2.2rem;
+}
+
+
 @media screen and (max-width: 767px){
   #select{
     width: 100%
